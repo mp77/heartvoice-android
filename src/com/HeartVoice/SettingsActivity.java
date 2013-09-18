@@ -20,9 +20,10 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         Preference default_text_preference = findPreference(KEY_DEFAULT_TEXT);
         default_text_preference.setSummary(getPreferenceManager().getSharedPreferences().getString(KEY_DEFAULT_TEXT, getString(R.string.default_text_value)));
         ListPreference listPref = (ListPreference) findPreference(KEY_DEFAULT_VOICE);
-        if(listPref.getEntry() != null){
-            listPref.setSummary(listPref.getEntry());
-        }
+//        if(listPref.getEntry() != null){
+//            listPref.setSummary(listPref.getEntry());
+//        }
+        listPref.setEnabled(false);
     }
 
     @Override

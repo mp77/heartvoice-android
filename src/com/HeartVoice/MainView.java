@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,19 +23,6 @@ public class MainView extends LinearLayout {
         editText = (EditText) findViewById(R.id.word);
         talkButton = (Button) findViewById(R.id.talk_button);
         readButton = (Button) findViewById(R.id.read_button);
-
-        talkButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new RecognizerDialogInitializer(getContext(), editText).show();
-            }
-        });
-        readButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new SynthesizerDialogInitializer(context, editText).show();
-            }
-        });
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         editText.setText(preferences.getString(SettingsActivity.KEY_DEFAULT_TEXT, context.getString(R.string.default_text_value)));
         mContext =  context;
